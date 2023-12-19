@@ -8,9 +8,6 @@ import com.example.testwidthheight.databinding.ActivityMainBinding
 
 lateinit var binding: ActivityMainBinding
 
-var elementHeight = 0
-var elementWidth = 0
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
