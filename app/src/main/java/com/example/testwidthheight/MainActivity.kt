@@ -17,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         countWidthHeight()
+        Toast.makeText(
+            this@MainActivity,
+            "HEIGHT = ${binding.container.height}",
+            Toast.LENGTH_LONG
+        ).show()
+
     }
 
     fun countWidthHeight() {
@@ -25,15 +31,15 @@ class MainActivity : AppCompatActivity() {
             .addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
                 override fun onGlobalLayout() {
                     frameLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this)
-                    elementHeight = frameLayout.height
-                    elementWidth = frameLayout.width
+                    val elementHeight = frameLayout.height
+                    val elementWidth = frameLayout.width
 //                    Toast.makeText(
 //                        this@MainActivity,
 //                        "HEIGHT = $elementHeight",
 //                        Toast.LENGTH_LONG
 //                    ).show()
-                    binding.container.top = 350
-                    binding.container.left = 350
+                    binding.container.top = elementHeight / 2 - binding.imageView.height / 2
+                    binding.container.left = elementWidth / 2 - binding.imageView.width / 2
                 }
             })
     }
